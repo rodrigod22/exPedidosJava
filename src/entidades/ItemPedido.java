@@ -4,13 +4,15 @@ public class ItemPedido {
     
     private Integer quantidade;
     private Double preco;
+    private Produto produto;
 
     public ItemPedido() {
     }
 
-    public ItemPedido(Integer quantidade, Double preco) {
+    public ItemPedido(Integer quantidade, Double preco, Produto produto) {
         this.quantidade = quantidade;
         this.preco = preco;
+        this.produto = produto;
     }
 
     public Integer getQuantidade() {
@@ -32,4 +34,16 @@ public class ItemPedido {
     public Double subTotal(){
         return quantidade * preco;
     }
+    
+    
+    @Override
+	public String toString() {
+		return          produto.getNome() 
+				+ ", $" 
+				+ String.format("%.2f", preco) 
+				+ ", Quantidade: " 
+				+ quantidade + 
+				", Subtotal: $" 
+				+ String.format("%.2f", subTotal());
+	}
 }
